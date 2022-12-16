@@ -2,6 +2,7 @@
 #define SPONGE_LIBSPONGE_BYTE_STREAM_HH
 
 #include <string>
+#include <deque>
 
 //! \brief An in-order byte stream.
 
@@ -10,12 +11,12 @@
 //! and then no more bytes can be written.
 class ByteStream {
   private:
-    // Your code here -- add private members as necessary.
+    int _capacity=0; //buffer的最大容量
+    std::deque<char> pkt_buffer{};  
+    int totalWrite=0; //总共写入的字节数
+    int totalPop=0;	//总共读出的字节数
+    bool end=false;	//是否流输入完成
 
-    // Hint: This doesn't need to be a sophisticated data structure at
-    // all, but if any of your tests are taking longer than a second,
-    // that's a sign that you probably want to keep exploring
-    // different approaches.
 
     bool _error{};  //!< Flag indicating that the stream suffered an error.
 
