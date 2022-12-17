@@ -14,11 +14,12 @@ class StreamReassembler {
   private:
     // Your code here -- add private members as necessary.
     std::deque<char> Reassemble_buffer{};
-    std::deque<char> Unassemble_buffer{};
-    std::vector<int> Unassemble_index{};
-    int Reassemble_index=0;;
-    int Unassemble_size=0;
-    int Reassemble_size=0;
+    std::vector<std::string> Unassemble_buffer{};
+    std::vector<size_t> Unassemble_index{};
+    size_t Reassemble_index=0;
+    size_t Unassemble_size=0;
+    size_t eof_index=0;
+    bool _eof=false;
 
     ByteStream _output;  //!< The reassembled in-order byte stream
 
